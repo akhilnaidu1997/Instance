@@ -7,7 +7,7 @@ DOMAIN="daws86s-akhil.shop"
 
 for instances in $@
 do
-    Instance=$( aws ec2 run-instances --image-id $AMI --instance-type t2.micro --security-group-ids $SG --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$instances}]" --query 'Instances[0].InstanceId' --output text )
+    Instance=$( aws ec2 run-instances --image-id $AMI --instance-type t3.micro --security-group-ids $SG --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$instances}]" --query 'Instances[0].InstanceId' --output text )
     if [ $instances != "frontend" ]; then
         IPADD=$( aws ec2 describe-instances --instance-ids $Instance --query "Reservations[0].Instances[0].PrivateIpAddress" --output text )
         RECORD="$instances.$DOMAIN" #mongodb.daws86s-akhil.shop
