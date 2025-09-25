@@ -38,7 +38,7 @@ systemctl daemon-reload
 systemctl enable catalogue  &>> output.log
 systemctl start catalogue &>> output.log
 
-cp $PWD/mongo.repo /etc/yum.repos.d/mongo.repo
+cp /home/ec2-user/Instance/mongo.repo /etc/yum.repos.d/mongo.repo
 
 dnf install mongodb-mongosh -y &>> output.log
 mongosh --host mongodb.daws86s-akhil.shop </app/db/master-data.js &>> output.log
