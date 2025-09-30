@@ -21,7 +21,8 @@ if [ $USER -ne 0 ]; then
 fi
 
 USAGE(){
-    echo "USAGE: sh backup-script.sh <source-dir> <dest-dir> <Days> [Optional, 14 days by default]"
+    echo -e "USAGE: $R sh backup-script.sh <source-dir> <dest-dir> <Days> $N[Optional, 14 days by default]"
+    exit 1
 }
 
 if [ $# -lt 2 ]; then
