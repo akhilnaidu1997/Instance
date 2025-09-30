@@ -35,8 +35,10 @@ fi
 
 if [ ! -d $SOURCE ]; then
     echo -e " $R Error : Source $SOURCE does not exist"
+    exit 1
 fi
 
 if [ ! -d $DEST ]; then
     echo -e " $R Error : Destination $DEST does not exist"
+    exit 1
 fi
