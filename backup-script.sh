@@ -48,7 +48,7 @@ FIND_TO_DELETE=$( find $SOURCE -name "*.log" -type f -mtime +$DAYS )
 if [ ! -z "$FIND_TO_DELETE" ]; then
     echo "Files found"
     TIME_STAMP=$(date +%F-%H-%M)
-    ZIP_FILENAME="$DEST/app-logs-$TIME_STAMP.zip" #/home/ec2-user/Instance/dest-dir-date
+    ZIP_FILENAME="$DEST/$TIME_STAMP.zip" #/home/ec2-user/Instance/dest-dir-date
     echo "Zip filename : $ZIP_FILENAME"
     find $SOURCE -name "*.log" -type f -mtime +$DAYS | zip -@ -j "$ZIP_FILENAME"
     if [ -f $ZIP_FILENAME ]; then
