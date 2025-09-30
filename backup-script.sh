@@ -44,8 +44,8 @@ if [ ! -d $DEST ]; then
 fi
 
 FIND_TO_DELETE=$( find $SOURCE -name "*.log" -type f -mtime +$DAYS )
-if [ ! -z "$FIND_TO_DELETE"]; then
+if [ ! -z "$FIND_TO_DELETE" ]; then
     echo "Files found"
 else
-    echo :Files not found"
+    echo "Files not found"
 fi
