@@ -42,3 +42,10 @@ if [ ! -d $DEST ]; then
     echo -e " $R Error : Destination $DEST does not exist"
     exit 1
 fi
+
+FIND_TO_DELETE=$( find $SOURCE -name "*.log" -type f -mtime +$DAYS )
+if [ ! -z "$FIND_TO_DELETE"]; then
+    echo "Files found"
+else
+    echo :Files not found"
+fi
