@@ -44,8 +44,17 @@ if [ ! -d $DEST ]; then
 fi
 
 FIND_TO_DELETE=$( find $SOURCE -name "*.log" -type f -mtime +$DAYS )
+
 if [ ! -z "$FIND_TO_DELETE" ]; then
     echo "Files found"
+    TIME_STAMP=$(date +%F-%H-%M)
+    ZIP_FILENAME="$DEST-$TIME_STAMP.zip"
+    find $SOURCE -name "*.log" -type f -mtime +$DAYS | zip -@ -j "$ZIP_FILENAME"
+    if [ -f $ZIP_FILENAME ]; then
+        echo " Archieval successful"
+    else
+        echo "Archievel failed"
+    fi
 else
     echo "Files not found"
 fi
