@@ -53,6 +53,11 @@ if [ ! -z "$FIND_TO_DELETE" ]; then
     find $SOURCE -name "*.log" -type f -mtime +$DAYS | zip -@ -j "$ZIP_FILENAME"
     if [ -f $ZIP_FILENAME ]; then
         echo " Archieval successful"
+        while IFS= read -r line
+        do
+            echo "Deleting files: $line"
+            rm -rf $line
+        done
     else
         echo "Archievel failed"
     fi
