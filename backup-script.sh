@@ -57,7 +57,7 @@ if [ ! -z "$FIND_TO_DELETE" ]; then
         do
             echo "Deleting files: $line"
             rm -rf $line
-        done
+        done <<< $FIND_TO_DELETE
     else
         echo "Archievel failed"
     fi
