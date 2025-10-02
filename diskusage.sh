@@ -13,4 +13,4 @@ do
     
 done <<< $DISK_USAGE
 
-echo "High disk usage on $PARTITION: $USAGE"
+echo "High disk usage on $MESSAGE"
