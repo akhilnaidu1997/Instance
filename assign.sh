@@ -2,6 +2,11 @@
 
 FILENAME=$1
 
+if [ $# -ne 1 ]; then
+    echo "usage: filename.sh <args>"
+    exit 1
+fi
+
 if [ ! -d $FILENAME ]; then
     echo "File doesnot exists"
     exit 1
